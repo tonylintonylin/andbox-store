@@ -119,212 +119,54 @@
       {% endif %}
 
       <header class="site-header" role="banner"{% if section.settings.transparent_header_enable %} data-transparent-header="true"{% endif %}>
+        
+        <!-- new here -->
         <div class="wrapper">
-          <div class="grid--full grid--table">
-            <div class="grid__item large--hide large--one-sixth one-quarter">
-              <div class="site-nav--open site-nav--mobile">
-                <button type="button" class="icon-fallback-text site-nav__link site-nav__link--burger js-drawer-open-button-left" aria-controls="NavDrawer">
-                  <span class="burger-icon burger-icon--top"></span>
-                  <span class="burger-icon burger-icon--mid"></span>
-                  <span class="burger-icon burger-icon--bottom"></span>
-                  <span class="fallback-text">{{ 'general.drawers.navigation' | t }}</span>
-                </button>
-              </div>
-            </div>
-            <div class="grid__item large--one-third medium-down--one-half">
-              {% comment %}
-                Use the uploaded logo from theme settings if enabled.
-                Site name gets precedence with H1 tag on homepage, div on other pages.
-              {% endcomment %}
-              {% if request.page_type == 'index' %}
-                <h1 class="site-header__logo large--left" itemscope itemtype="http://schema.org/Organization">
-              {% else %}
-                <div class="h1 site-header__logo large--left" itemscope itemtype="http://schema.org/Organization">
-              {% endif %}
-                {% capture image_size %}{{ logo_max_width | escape }}x{% endcapture %}
+          <div class="header_content_container">
+            <div class="header_logo_wrap">
+                              <!-- large left -->
 
-                <a href="{{ routes.root_url }}" itemprop="url" class="site-header__logo-link">
-                  {% if section.settings.logo %}
-                    <img class="site-header__logo-image" src="{{ section.settings.logo | img_url: image_size }}" srcset="{{ section.settings.logo | img_url: image_size }} 1x, {{ section.settings.logo | img_url: image_size, scale: 2 }} 2x" alt="{{ section.settings.logo.alt | default: shop.name }}" itemprop="logo">
-
-                    {% if request.page_type == 'index' and section.settings.transparent_header_enable %}
-                      {% if section.settings.transparent_logo == blank %}
-                        {%- assign transparent_logo = section.settings.logo -%}
-                      {% else %}
-                        {%- assign transparent_logo = section.settings.transparent_logo -%}
-                      {% endif %}
-
-                      <img class="site-header__logo-image site-header__logo-image--transparent" src="{{ transparent_logo | img_url: image_size }}" srcset="{{ transparent_logo | img_url: image_size }} 1x, {{ transparent_logo | img_url: image_size, scale: 2 }} 2x" alt="{{ section.settings.logo.alt | default: shop.name }}" itemprop="logo">
-                    {% endif %}
-                  {% else %}
-                    {{ shop.name }}
-                  {% endif %}
+              <h1 class="site-header__logo large--left">
+                <!-- logo svg -->
+                <a href="/" itemprop="url" class="site-header__logo-link hide-tab">
+                  <!--?xml version="1.0" encoding="UTF-8"?-->
+                  <svg width="107px" height="17px" viewBox="0 0 107 17" version="1.1" xmlns="http://www.w3.org/2000/svg"
+                    xmlns:xlink="http://www.w3.org/1999/xlink">
+                    <title>andboxlogo</title>
+                    <g id="Symbols" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                      <g id="logo/primary/white" fill="#FFFFFF" fill-rule="nonzero">
+                        <g id="andboxlogo">
+                          <path
+                            d="M65.7346178,17 C68.6702222,17 71.048,15.5833333 71.048,12.0416667 L71.048,12.0416667 C71.048,10.2821667 70.1492,9.03927778 68.48,8.5 L68.48,8.075 C69.7920578,7.38508333 70.6295111,6.07702778 70.62,4.25 L70.62,4.25 C70.62,1.49175 68.26172,0 65.484,0 L54.356,0 L53.928,0.425 L53.928,16.575 L54.356,17 L65.7346178,17 Z M58.208,3.825 L58.636,3.4 L64.628,3.4 C65.5735115,3.4 66.34,4.16111593 66.34,5.1 C66.34,6.03888407 65.5735115,6.8 64.628,6.8 L58.636,6.8 L58.208,6.375 L58.208,3.825 Z M65.056,13.6 L58.636,13.6 L58.208,13.175 L58.208,10.625 L58.636,10.2 L65.056,10.2 C66.0015115,10.2 66.768,10.9611159 66.768,11.9 C66.768,12.8388841 66.0015115,13.6 65.056,13.6 Z"
+                            id="Shape"></path>
+                          <polygon id="Path"
+                            points="107 2.975 107 0.425 106.572 0 104.004 0 98.654 5.3125 98.226 5.3125 92.876 0 90.308 0 89.88 0.425 89.88 2.975 95.23 8.2875 95.23 8.7125 89.88 14.025 89.88 16.575 90.308 17 92.876 17 98.226 11.6875 98.654 11.6875 104.004 17 106.572 17 107 16.575 107 14.025 101.65 8.7125 101.65 8.2875">
+                          </polygon>
+                          <polygon id="Path"
+                            points="35.096 0.425 34.668 0 31.244 0 30.816 0.425 30.816 9.35 30.388 9.35 20.972 0 18.404 0 17.976 0.425 17.976 16.575 18.404 17 21.828 17 22.256 16.575 22.256 7.65 22.684 7.65 32.1 17 34.668 17 35.096 16.575">
+                          </polygon>
+                          <path
+                            d="M45.368,17 C49.6228017,17 53.072,13.5749783 53.072,9.35 L53.072,7.65 C53.072,3.42502166 49.6228017,5.68434189e-14 45.368,5.68434189e-14 L36.38,5.68434189e-14 L35.952,0.425 L35.952,16.575 L36.38,17 L45.368,17 Z M48.792,9.35 C48.792,11.3186944 47.08,13.175 45.368,13.175 L40.66,13.175 L40.232,12.75 L40.232,4.25 L40.66,3.825 L45.368,3.825 C47.08,3.825 48.792,5.68130556 48.792,7.65 L48.792,9.35 Z"
+                            id="Shape"></path>
+                          <path
+                            d="M5.564,0 L0.00380444444,5.525 L0,5.525 L0,16.575 L0.428,17 L3.852,17 L4.28,16.575 L4.28,13.6 L4.708,13.175 L12.412,13.175 L12.84,13.6 L12.84,16.575 L13.268,17 L16.692,17 L17.12,16.575 L17.12,5.525 L11.556,0 L5.564,0 Z M12.412,9.35 L4.708,9.35 L4.28,8.925 L4.28,7.225 L7.704,3.825 L9.416,3.825 L12.84,7.225 L12.84,8.925 L12.412,9.35 Z"
+                            id="Shape"></path>
+                          <rect id="Rectangle" x="71.904" y="0" width="17.12" height="17"></rect>
+                        </g>
+                      </g>
+                    </g>
+                  </svg>
                 </a>
-              {% if request.page_type == 'index' %}
-                </h1>
-              {% else %}
-                </div>
-              {% endif %}
-            </div>
-            <nav class="grid__item large--two-thirds large--text-right medium-down--hide" role="navigation">
-              {% comment %}
-                List out your main-menu linklist (default)
 
-                More info on linklists:
-                  - http://docs.shopify.com/themes/liquid-variables/linklists
-              {% endcomment %}
-              <!-- begin site-nav -->
-              <ul class="site-nav" id="AccessibleNav">
-                {% for link in linklists[section.settings.main_menu_link_list].links %}
-                  {% if link.links != blank %}
-                  {% assign parent_index = forloop.index %}
-                    <li
-                      class="site-nav__item site-nav--has-dropdown {% if link.active %}site-nav--active{% endif %}"
-                      aria-haspopup="true"
-                      data-meganav-type="parent">
-                      <a
-                        href="{{ link.url }}"
-                        class="site-nav__link"
-                        data-meganav-type="parent"
-                        aria-controls="MenuParent-{{ parent_index }}"
-                        aria-expanded="false"
-                        {% unless request.page_type == 'index' %}{% if link.active %}aria-current="page"{% endif %}{% endunless%}>
-                          {{ link.title | escape }}
-                          <span class="icon icon-arrow-down" aria-hidden="true"></span>
-                      </a>
-                      <ul
-                        id="MenuParent-{{ parent_index }}"
-                        class="site-nav__dropdown {% if link.levels == 2 %}site-nav--has-grandchildren{% endif %}"
-                        data-meganav-dropdown>
-                        {% for childlink in link.links %}
-                          {% if childlink.links != blank %}
-                          {% assign child_index = forloop.index %}
-                            <li
-                              class="site-nav__item site-nav--has-dropdown site-nav--has-dropdown-grandchild {% if childlink.active %}site-nav--active{% endif %}"
-                              aria-haspopup="true">
-                              <a
-                                href="{{ childlink.url }}"
-                                class="site-nav__dropdown-link"
-                                aria-controls="MenuChildren-{{ parent_index }}-{{ child_index }}"
-                                data-meganav-type="parent"
-                                {% unless request.page_type == 'index' %}{% if childlink.active %}aria-current="page"{% endif %}{% endunless%}
-                                tabindex="-1">
-                                  {{ childlink.title | escape }}
-                                  <span class="icon icon-arrow-down" aria-hidden="true"></span>
-                              </a>
-                              <div class="site-nav__dropdown-grandchild">
-                                <ul
-                                  id="MenuChildren-{{ parent_index }}-{{ child_index }}"
-                                  data-meganav-dropdown>
-                                  {% for grandchildlink in childlink.links %}
-                                    <li{% if grandchildlink.active %} class="site-nav--active"{% endif %}>
-                                      <a
-                                        href="{{ grandchildlink.url }}"
-                                        class="site-nav__dropdown-link"
-                                        data-meganav-type="child"
-                                        {% unless request.page_type == 'index' %}{% if grandchildlink.active %}aria-current="page"{% endif %}{% endunless %}
-                                        tabindex="-1">
-                                          {{ grandchildlink.title | escape }}
-                                        </a>
-                                    </li>
-                                  {% endfor %}
-                                </ul>
-                              </div>
-                            </li>
-                          {% else %}
-                            <li{% if childlink.active %} class="site-nav--active"{% endif %}>
-                              <a
-                                href="{{ childlink.url }}"
-                                class="site-nav__dropdown-link"
-                                data-meganav-type="child"
-                                {% if childlink.active %}aria-current="page"{% endif %}
-                                tabindex="-1">
-                                  {{ childlink.title | escape }}
-                              </a>
-                            </li>
-                          {% endif %}
-                        {% endfor %}
-                      </ul>
-                    </li>
-                  {% else %}
-                    <li class="site-nav__item{% if link.active %} site-nav--active{% endif %}">
-                      <a
-                        href="{{ link.url }}"
-                        class="site-nav__link"
-                        data-meganav-type="child"
-                        {% unless request.page_type == 'index' %}{% if link.active %}aria-current="page"{% endif %}{% endunless%}>
-                          {{ link.title | escape }}
-                      </a>
-                    </li>
-                  {% endif %}
-                {% endfor %}
-
-                {% comment %}
-                  Remove comment tags below to add a search box to your header, visible on screens where your header menu
-                  is displayed inline.
-                  <li class="site-nav__item site-nav--search__bar medium-down--hide">
-                    {% include 'search-bar', search_btn_style: 'btn', search_bar_location: 'search-bar--header' %}
-                  </li>
-                {% endcomment %}
-                {% if shop.customer_accounts_enabled %}
-                  <li class="site-nav__item site-nav__expanded-item site-nav__item--compressed">
-                    <a class="site-nav__link site-nav__link--icon" href="{{ routes.account_url }}">
-                      <span class="icon-fallback-text">
-                        <span class="icon icon-customer" aria-hidden="true"></span>
-                        <span class="fallback-text">
-                          {% if customer %}
-                            {{ 'layout.customer.account' | t }}
-                          {% else %}
-                            {{ 'layout.customer.log_in' | t }}
-                          {% endif %}
-                        </span>
-                      </span>
-                    </a>
-                  </li>
-                {% endif %}
-
-                {% if section.settings.search == 'page' or section.settings.search == 'modal' %}
-                  {% assign search_modal = true %}
-                  {% if section.settings.search == 'page' %}
-                    {% assign search_modal = false %}
-                  {% endif %}
-                  <li class="site-nav__item site-nav__item--compressed">
-                    <a href="{{ routes.search_url }}" class="site-nav__link site-nav__link--icon{% if search_modal %} js-toggle-search-modal{% endif %}" data-mfp-src="#SearchModal">
-                      <span class="icon-fallback-text">
-                        <span class="icon icon-search" aria-hidden="true"></span>
-                        <span class="fallback-text">{{ 'general.search.title' | t }}</span>
-                      </span>
-                    </a>
-                  </li>
-                {% endif %}
-
-                <li class="site-nav__item site-nav__item--compressed">
-                  <a href="{{ routes.cart_url }}" class="site-nav__link site-nav__link--icon cart-link js-drawer-open-button-right" aria-controls="CartDrawer">
-                    <span class="icon-fallback-text">
-                      <span class="icon icon-cart" aria-hidden="true"></span>
-                      <span class="fallback-text">{{ 'layout.cart.title' | t }}</span>
-                    </span>
-                    <span class="cart-link__bubble{% if cart.item_count > 0 %} cart-link__bubble--visible{% endif %}"></span>
-                  </a>
-                </li>
-
-              </ul>
-              <!-- //site-nav -->
-            </nav>
-            <div class="grid__item large--hide one-quarter">
-              <div class="site-nav--mobile text-right">
-                <a href="{{ routes.cart_url }}" class="site-nav__link cart-link js-drawer-open-button-right" aria-controls="CartDrawer">
-                  <span class="icon-fallback-text">
-                    <span class="icon icon-cart" aria-hidden="true"></span>
-                    <span class="fallback-text">{{ 'layout.cart.title' | t }}</span>
-                  </span>
-                  <span class="cart-link__bubble{% if cart.item_count > 0 %} cart-link__bubble--visible{% endif %}"></span>
+                <a href="/" class="tab-down">
+                  <img src="//cdn.shopify.com/s/files/1/0142/6007/6630/files/andboxlogo-white_mobile.svg?v=6029907221703298499" alt="">
                 </a>
-              </div>
+              </h1>
             </div>
           </div>
-
         </div>
+        <!-- new end here -->
+
       </header>
     </div>
   </div>

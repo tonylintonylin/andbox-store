@@ -2416,6 +2416,31 @@ $socialIconFontStack: 'icons';
   text-decoration: none;
 }
 
+.site-header .wrapper .header_content_container{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 100%;
+}
+
+.tab-down {
+    display: none!important;
+}
+
+@media screen and (max-width: 1023px){
+  .hide-tab {
+      display: none!important;
+  }
+
+  .tab-down {
+      display: block!important;
+  }
+
+  .site-header__logo{
+    text-align: center!important;
+  }
+}
+
 .announcement-bar {
   display: block;
   text-align: center;
