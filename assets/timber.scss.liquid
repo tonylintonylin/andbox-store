@@ -521,14 +521,23 @@ body {
   background-color: $colorBody;
 }
 
-.wrapper {
-  max-width: $siteWidth;
-  margin: 0 auto;
-  padding: 0 ($gutter / 2);
+// .wrapper {
+//   max-width: $siteWidth;
+//   margin: 0 auto;
+//   padding: 0 ($gutter / 2);
 
-  @include at-query ($min, $postSmall) {
-    padding: 0 $gutter;
-  }
+//   @include at-query ($min, $postSmall) {
+//     padding: 0 $gutter;
+//   }
+// }
+
+header.site-header .wrapper {
+    height: 100%;
+    padding: 0 2.5rem;
+    padding-top: 0px;
+    padding-right: 2.5rem;
+    padding-bottom: 0px;
+    padding-left: 2.5rem;
 }
 
 .main-content {
